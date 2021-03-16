@@ -21,4 +21,36 @@ void main(List<String> arguments) {
   print(volumeGarrafas);
   volumeGarrafas.sort();
   print(volumeGarrafas);
+  double garrafaUtilizada1 = volumeGarrafas.last;
+  double garrafaUtilizada2 = volumeGarrafas.last - 1;
+  double garrafaUtilizada3 = volumeGarrafas.last - 2;
+  double garrafaUtilizada4 = volumeGarrafas.last - 3;
+  double garrafaUtilizada5 = volumeGarrafas.last - 4;
+
+  if (volumeGarrafas.last == volumeGalao) {
+    print(
+        'Você utilizou uma garrafa com o volume de ${volumeGarrafas.last} litros e completou o galão de ${volumeGalao} litros.');
+  } else if (volumeGarrafas.last < volumeGalao) {
+    var faltaVolume = volumeGalao - volumeGarrafas.last;
+    var findGarrafa;
+    if ((findGarrafa = [...volumeGarrafas].any((el) => el == faltaVolume)) ==
+        faltaVolume) {
+      print(
+          'Você utilizou as garrafas de ${volumeGarrafas.last} litro(s) e $findGarrafa litro(s) para completar o galão de ${volumeGalao} litros.');
+    } else {}
+  } else if (volumeGarrafas.last > volumeGalao) {
+    volumeGarrafas.removeLast();
+    if (volumeGarrafas.last == volumeGalao) {
+      print(
+          'Você utilizou uma garrafa com o volume de ${volumeGarrafas.last} litros e completou o galão de ${volumeGalao} litros.');
+    } else if (volumeGarrafas.last < volumeGalao) {
+      var faltaVolume = volumeGalao - volumeGarrafas.last;
+      var findGarrafa;
+      if ((findGarrafa = [...volumeGarrafas].any((el) => el == faltaVolume)) ==
+          faltaVolume) {
+        print(
+            'Você utilizou as garrafas de ${volumeGarrafas.last} litro(s) e $findGarrafa litro(s) para completar o galão de ${volumeGalao} litros.');
+      } else {}
+    }
+  }
 }
